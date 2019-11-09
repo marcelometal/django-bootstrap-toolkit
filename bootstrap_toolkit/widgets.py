@@ -64,7 +64,7 @@ def get_locale_js_url(lang):
 
 class BootstrapUneditableInput(forms.TextInput):
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         if attrs is None:
             attrs = {}
         attrs['type'] = 'hidden'
@@ -117,7 +117,7 @@ class BootstrapDateInput(forms.DateInput):
         }
         return forms.Media(css=css, js=js)
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         date_input_attrs = {}
         if attrs:
             date_input_attrs.update(attrs)

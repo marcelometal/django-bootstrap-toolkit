@@ -327,17 +327,14 @@ def get_pagination_context(page, pages_to_show=11, url=None, size=None, align=No
         pages_forward = None
         if first_page > 1:
             first_page -= 1
-        if pages_back > 1:
+        if pages_back and pages_back > 1:
             pages_back -= 1
-        else:
-            pages_back = None
     pages_shown = []
     for i in range(first_page, last_page + 1):
         pages_shown.append(i)
     # Append proper character to url
     if url:
         # Remove existing page GET parameters
-        url = unicode(url)
         url = re.sub(r'\?page\=[^\&]+', u'?', url)
         url = re.sub(r'\&page\=[^\&]+', u'', url)
         # Append proper separator
